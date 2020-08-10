@@ -1,0 +1,13 @@
+version: "3"
+services:
+  yocto-build:
+    build: yocto-build
+    privileged: true
+    pid: "host"
+    #command: balenaos:build-slim
+    environment:
+      REPO: "${PASS:-https://github.com/balena-os/balena-raspberrypi.git}"
+      MACHINE: "${PASS:-raspberrypi}"
+    volumes:
+     - ./build:/build
+
